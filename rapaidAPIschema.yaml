@@ -32,12 +32,12 @@ paths:
         - in: query
           name: limit
           schema:
-            type: string
+            type: integer
           description: Limit the number of results. This parameter is not required.
         - in: query
           name: offset
           schema:
-            type: string
+            type: integer
           description: Offset for pagination. This parameter is not required.
       responses:
         '200':
