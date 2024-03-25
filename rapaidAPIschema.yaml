@@ -102,7 +102,7 @@ components:
         change:
           type: string
         rank:
-          type: string
+          type: integer
         sparkline:
           type: array
           items:
