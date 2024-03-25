@@ -112,20 +112,21 @@ components:
           type: string
 
           
- CoinSupplyResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: success
-        data:
+    CoinSupplyResponse:
           type: object
           properties:
-            supply:
-              $ref: '#/components/schemas/Supply'
+            status:
+              type: string
+              example: success
+            data:
+              type: object
+              properties:
+                supply:
+                  $ref: '#/components/schemas/Supply'
     Supply:
       type: object
       properties:
+      
         maxAmount:
           type: string
           description: The maximum amount of coins that will ever exist
