@@ -85,8 +85,6 @@ components:
           type: string
         rank:
           type: integer
-        sparkline:
-          type: array
           items:
             type: string
         coinrankingUrl:
