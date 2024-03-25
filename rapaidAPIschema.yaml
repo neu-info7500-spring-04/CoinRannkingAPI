@@ -15,38 +15,37 @@ paths:
           name: referenceCurrencyUuid
           schema:
             type: string
-          required: true
-          description: UUID of the reference currency.
+          description: UUID of the reference currency. This parameter is not required.
         - in: query
           name: timePeriod
           schema:
             type: string
-          description: Time period to fetch the data for.
+          description: Time period to fetch the data for. This parameter is not required.
         - in: query
           name: tiers[0]
           schema:
             type: string
-          description: Tier level of the coins.
+          description: Tier level of the coins. This parameter is not required.
         - in: query
           name: orderBy
           schema:
             type: string
-          description: Field by which the results should be ordered.
+          description: Field by which the results should be ordered. This parameter is not required.
         - in: query
           name: orderDirection
           schema:
             type: string
-          description: The direction of the order (asc or desc).
+          description: The direction of the order (asc or desc). This parameter is not required.
         - in: query
           name: limit
           schema:
             type: string
-          description: Limit the number of results.
+          description: Limit the number of results. This parameter is not required.
         - in: query
           name: offset
           schema:
             type: string
-          description: Offset for pagination.
+          description: Offset for pagination. This parameter is not required.
       responses:
         '200':
           description: Successful response
@@ -119,4 +118,3 @@ components:
           type: string
         volume24h:
           type: string
-
