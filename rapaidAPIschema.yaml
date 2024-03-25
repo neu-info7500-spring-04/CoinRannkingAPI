@@ -6,6 +6,24 @@ info:
 servers:
   - url: https://coinranking1.p.rapidapi.com
 paths:
+  /coin/{coinUuid}/supply:
+    get:
+      summary: Get supply information for a specific cryptocurrency
+      operationId: getCoinSupply
+      parameters:
+        - in: path
+          name: coinUuid
+          required: true
+          schema:
+            type: string
+          description: UUID of the cryptocurrency to retrieve supply information for
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoinSupplyResponse'
   /coins:
     get:
       summary: Get a list of cryptocurrencies
@@ -92,3 +110,34 @@ components:
             nullable: true # 添加nullable属性
         coinrankingUrl:
           type: string
+
+          
+ CoinSupplyResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            supply:
+              $ref: '#/components/schemas/Supply'
+    Supply:
+      type: object
+      properties:
+        maxAmount:
+          type: string
+          description: The maximum amount of coins that will ever exist
+        totalSyncedAt:
+          type: integer
+          description: The timestamp when the total amount was last updated
+        totalAmount:
+          type: string
+          description: The total amount of coins currently in existence
+        circulatingSyncedAt:
+          type: integer
+          description: The timestamp when the circulating amount was last updated
+        circulatingAmount:
+          type: string
+          description: The amount of coins that are currently in circulation
