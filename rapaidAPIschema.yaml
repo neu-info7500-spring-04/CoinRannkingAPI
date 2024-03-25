@@ -85,8 +85,11 @@ components:
           type: string
         rank:
           type: integer
+        sparkline:
+          type: array
           items:
             type: string
+               nullable: true # 添加nullable属性
         coinrankingUrl:
           type: string
         volume24h:
