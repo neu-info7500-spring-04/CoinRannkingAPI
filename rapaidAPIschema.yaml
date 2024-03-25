@@ -92,5 +92,3 @@ components:
             nullable: true # 添加nullable属性
         coinrankingUrl:
           type: string
-        volume24h:
-          type: string
