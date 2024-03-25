@@ -1,0 +1,122 @@
+openapi: 3.0.0
+info:
+  title: CoinRanking API
+  version: 1.0.0
+  description: API for fetching cryptocurrency data from CoinRanking.
+servers:
+  - url: https://coinranking1.p.rapidapi.com
+paths:
+  /coins:
+    get:
+      summary: Get a list of cryptocurrencies
+      operationId: getCryptocurrencies
+      parameters:
+        - in: query
+          name: referenceCurrencyUuid
+          schema:
+            type: string
+          required: true
+          description: UUID of the reference currency.
+        - in: query
+          name: timePeriod
+          schema:
+            type: string
+          description: Time period to fetch the data for.
+        - in: query
+          name: tiers[0]
+          schema:
+            type: string
+          description: Tier level of the coins.
+        - in: query
+          name: orderBy
+          schema:
+            type: string
+          description: Field by which the results should be ordered.
+        - in: query
+          name: orderDirection
+          schema:
+            type: string
+          description: The direction of the order (asc or desc).
+        - in: query
+          name: limit
+          schema:
+            type: string
+          description: Limit the number of results.
+        - in: query
+          name: offset
+          schema:
+            type: string
+          description: Offset for pagination.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CryptocurrencyListResponse'
+components:
+  schemas:
+    CryptocurrencyListResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            stats:
+              $ref: '#/components/schemas/Stats'
+            coins:
+              type: array
+              items:
+                $ref: '#/components/schemas/Coin'
+    Stats:
+      type: object
+      properties:
+        total:
+          type: integer
+        totalCoins:
+          type: integer
+        totalMarkets:
+          type: integer
+        totalExchanges:
+          type: integer
+        totalMarketCap:
+          type: string
+        total24hVolume:
+          type: string
+    Coin:
+      type: object
+      properties:
+        uuid:
+          type: string
+        symbol:
+          type: string
+        name:
+          type: string
+        color:
+          type: string
+        iconUrl:
+          type: string
+        marketCap:
+          type: string
+        price:
+          type: string
+        btcPrice:
+          type: string
+        listedAt:
+          type: integer
+        change:
+          type: string
+        rank:
+          type: integer
+        sparkline:
+          type: array
+          items:
+            type: string
+        coinrankingUrl:
+          type: string
+        volume24h:
+          type: string
+
