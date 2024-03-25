@@ -126,18 +126,18 @@ components:
     Supply:
       type: object
       properties:
-      
+
         maxAmount:
           type: string
           description: The maximum amount of coins that will ever exist
         totalSyncedAt:
-          type: integer
+          type: string
           description: The timestamp when the total amount was last updated
         totalAmount:
           type: string
           description: The total amount of coins currently in existence
         circulatingSyncedAt:
-          type: integer
+          type: string
           description: The timestamp when the circulating amount was last updated
         circulatingAmount:
           type: string
