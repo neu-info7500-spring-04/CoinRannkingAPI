@@ -11,12 +11,11 @@ paths:
       summary: Get supply information for a specific cryptocurrency
       operationId: getCoinSupply
       parameters:
-        - in: path
-          name: coinUuid
+        - name: coinUuid
+          in: path
           required: true
           schema:
             type: string
-          description: UUID of the cryptocurrency to retrieve supply information for
       responses:
         '200':
           description: Successful response
@@ -110,8 +109,6 @@ components:
             nullable: true # 添加nullable属性
         coinrankingUrl:
           type: string
-
-          
     CoinSupplyResponse:
           type: object
           properties:
